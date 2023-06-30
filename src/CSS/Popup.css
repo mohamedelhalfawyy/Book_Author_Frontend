@@ -1,0 +1,216 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    /* Added a transition effect for the popup */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Added a class for when the popup is active */
+.popup-content.active {
+    /* Added a scale transform to make the popup appear larger */
+    transform: scale(1.1);
+}
+
+.popup-content h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.popup-content .page-content {
+    /* Added a border and some padding for the page content */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.popup-content .page-content p {
+    /* Added some line-height and text-align for the page content */
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.popup-content .button-group {
+    /* Added some flex properties for the button group */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Added some common styles for the buttons */
+.popup-content button {
+    background-color: #282c34;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 8px 16px;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+/* Added some hover effects for the buttons */
+.popup-content button:hover {
+    background-color: #333333;
+}
+
+/* Added some specific styles for the previous and next buttons */
+.popup-content .previous-btn {
+    background-color: #f44336; /* red */
+}
+
+.popup-content .next-btn {
+    background-color: #4caf50; /* green */
+}
+
+/* Use the animation property to apply the animation to the popup when it is active *//* To this line */
+.popup-content.active {
+    animation: bounce 0.3s forwards;
+}
+
+
+.popup-content .edit-btn {
+    border-radius: 4px;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0000ff; /* Use the same color as the heading for consistency */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add a transition effect */
+    cursor: pointer;
+
+}
+
+.popup-content .edit-btn:hover {
+    transform: scale(1.1); /* Make the button slightly bigger on hover */
+    background-color: #0056b3; /* Make the button darker on hover */
+}
+
+.popup-content .save-btn {
+    border-radius: 4px;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #4caf50; /* Use the same color as the heading for consistency */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Add a transition effect */
+    cursor: pointer;
+
+}
+
+.popup-content .save-btn:hover {
+    transform: scale(1.1); /* Make the button slightly bigger on hover */
+    background-color: green; /* Make the button darker on hover */
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-form input,
+.edit-form textarea {
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.edit-form input {
+    border-bottom: 2px solid #ccc;
+    max-width: 95%; /* added this to prevent stretching */
+}
+
+.edit-form textarea {
+    resize: none;
+    height: 200px;
+    border: 2px solid #ccc; /* added this to add border */
+}
+
+/* Use a media query for screens smaller than 600px */
+@media (max-width: 600px) {
+    /* Reduce the max-width and width of the popup-content */
+    .popup-content {
+        max-width: 400px;
+        width: 80%;
+    }
+
+    /* Reduce the font-size and padding of the buttons */
+    .popup-content button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* Use another media query for screens smaller than 400px */
+@media (max-width: 400px) {
+    /* Reduce the max-width and width of the popup-content further */
+    .popup-content {
+        max-width: 300px;
+        width: 70%;
+    }
+
+    /* Reduce the font-size and padding of the buttons further */
+    .popup-content button {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+/* Use the keyframes rule to define an animation for the buttons */
+@keyframes pulse {
+    /* Start with a scale of 1 */
+    0% {
+        transform: scale(1);
+    }
+
+    /* Scale up to 1.1 at 50% */
+    50% {
+        transform: scale(1.1);
+    }
+
+    /* Scale back to 1 at 100% */
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Use the animation property to apply the animation to the buttons on hover */
+.popup-content button:hover {
+    animation: pulse 0.5s infinite;
+}
+
+/* Change the keyframes rule for the bounce animation */
+@keyframes bounce {
+    /* Start with a scale of 0.8 and a positive translateY */
+    0% {
+        transform: scale(0.8) translateY(50px);
+    }
+
+    /* Scale up to 1.05 and reset the translateY at 60% */
+    60% {
+        transform: scale(1.05) translateY(0);
+    }
+
+    /* Scale back to 1 at 100% */
+    100% {
+        transform: scale(1);
+    }
+}
