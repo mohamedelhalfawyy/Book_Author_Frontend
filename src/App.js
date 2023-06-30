@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {Navigate, Route, Routes} from "react-router-dom";
+import BooksList from "./Components/BooksList";
+import Registration from "./Components/Registration";
+import Login from "./Components/Login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const isLoggedIn = !!localStorage.getItem("token"); // Check if user is logged in
+
+    return (
+      <div>
+        <main>
+          <Routes>
+            <Route path="/" exact element={<Navigate to={isLoggedIn ? "/books" : "/login"} />}/>
+            <Route path="/books" element={<BooksList/>}/>
+            <Route path="/registration" element={<Registration/>}/>
+            <Route path="/login" element={<Login/>}/>
+          </Routes>
+        </main>
+      </div>
+  )
 }
 
 export default App;
