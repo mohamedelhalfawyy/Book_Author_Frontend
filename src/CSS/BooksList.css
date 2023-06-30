@@ -1,0 +1,44 @@
+.card-container {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    margin: 10px;
+    max-width: 250px;
+    width: 100%;
+    cursor: pointer;
+
+}
+
+h2 {
+    color: #007bff;
+    text-align: center;
+}
+
+.card h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.card p {
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f0f0f0; /* Add a subtle background color change on hover */
+}
